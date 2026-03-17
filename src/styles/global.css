@@ -1,0 +1,156 @@
+/* 1. CONFIGURAÇÕES GERAIS E FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --azul-escuro: #051937;
+    --azul-vibrante: #007bff;
+    --azul-cliente: #0033aa;
+    --cinza-texto: #4a5568;
+    --cinza-fundo: #f8f9fa;
+    --branco: #ffffff;
+    --borda: #f0f0f0;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--azul-escuro);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    background-color: var(--branco);
+}
+
+/* 2. HEADER E NAVEGAÇÃO */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 4%;
+    background: var(--branco);
+    border-bottom: 1px solid var(--borda);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo { font-weight: 800; font-size: 24px; color: var(--azul-escuro); text-decoration: none; }
+.logo span { color: var(--azul-vibrante); }
+
+.menu-principal { display: flex; align-items: center; gap: 25px; }
+
+.nav-link, .nav-item > a {
+    font-size: 14px; text-decoration: none; color: var(--azul-escuro);
+    font-weight: 500; padding: 20px 0; transition: 0.3s;
+}
+
+.nav-link:hover, .has-dropdown:hover > a { color: var(--azul-vibrante); }
+
+/* MEGA MENU */
+.mega-menu {
+    display: none; position: absolute; top: 100%; left: 0; width: 100%;
+    background: var(--branco); box-shadow: var(--shadow);
+    border-top: 1px solid var(--borda); padding: 40px 0;
+}
+
+.has-dropdown:hover .mega-menu { display: block; animation: fadeIn 0.3s ease; }
+
+.container-menu {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 5%;
+}
+
+/* 3. SEÇÕES PRINCIPAIS (HERO & STATS) */
+.hero { padding: 80px 5%; background: var(--branco); }
+
+.container-hero {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; gap: 50px;
+}
+
+.hero-text { flex: 1; }
+.hero-text h1 { 
+    font-size: 3.5rem; font-weight: 800; line-height: 1.1; 
+    margin-bottom: 25px; letter-spacing: -1.5px; 
+}
+.hero-text h1 span { color: var(--azul-vibrante); }
+
+.hero-image { flex: 1; }
+.hero-image img { 
+    width: 100%; border-radius: 12px; 
+    box-shadow: 0 20px 50px rgba(5, 25, 55, 0.15);
+    transition: transform 0.5s ease;
+}
+.hero-image img:hover { transform: translateY(-5px) scale(1.02); }
+
+.stats { background: var(--azul-escuro); color: var(--branco); padding: 60px 0; }
+
+.container-stats {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-around; text-align: center;
+}
+.stat-item h2 { font-size: 2.5rem; color: var(--azul-vibrante); margin-bottom: 5px; }
+
+/* 4. PREÇOS E DIFERENCIAIS (PRICING & FEATURES) */
+.section-title { text-align: center; font-size: 2.5rem; margin: 80px 0 50px; font-weight: 800; }
+
+.pricing { padding: 100px 5%; background: var(--cinza-fundo); }
+.pricing-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+
+.price-card {
+    background: white; padding: 40px; border-radius: 15px; border: 1px solid #eee;
+    text-align: center; width: 350px; transition: 0.3s ease;
+}
+
+.price-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+.price-card.featured { border: 2px solid var(--azul-vibrante); position: relative; }
+.price-card .tag { 
+    position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+    background: var(--azul-vibrante); color: white; padding: 5px 20px; 
+    border-radius: 20px; font-size: 0.8rem; font-weight: 700;
+}
+
+.price { font-size: 1.5rem; font-weight: 700; margin: 20px 0; }
+.price span { font-size: 3.5rem; color: var(--azul-vibrante); }
+
+.price-card ul { list-style: none; margin-bottom: 30px; text-align: left; }
+.price-card li { margin-bottom: 12px; color: var(--cinza-texto); font-size: 0.95rem; }
+.price-card li::before { content: "✓"; color: var(--azul-vibrante); margin-right: 8px; font-weight: bold; }
+
+.features-detail { padding: 100px 5%; }
+.detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; max-width: 1200px; margin: 0 auto; }
+.detail-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
+
+/* 5. COMPONENTES E UTILITÁRIOS */
+.btn-primary { 
+    background: var(--azul-vibrante); color: white; padding: 14px 28px; 
+    border-radius: 8px; text-decoration: none; font-weight: 600; 
+    display: inline-block; transition: 0.3s; border: none; cursor: pointer;
+}
+.btn-primary:hover { background: var(--azul-cliente); transform: scale(1.02); }
+
+.badge { 
+    background: #e7f3ff; color: var(--azul-vibrante); padding: 6px 16px; 
+    border-radius: 20px; font-weight: 600; font-size: 0.85rem; display: inline-block;
+}
+
+.lang-selector { display: flex; gap: 8px; margin-left: 15px; }
+.lang-selector img { width: 22px; height: 22px; border-radius: 50%; border: 1px solid #ddd; cursor: pointer; }
+
+/* 6. ANIMAÇÕES E RESPONSIVIDADE */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 992px) {
+    .container-hero, .container-stats, .detail-grid { flex-direction: column; text-align: center; grid-template-columns: 1fr; }
+    .hero-text h1 { font-size: 2.8rem; }
+    .pricing-grid { flex-direction: column; align-items: center; }
+    .price-card { width: 100%; max-width: 400px; }
+}
+
+@media (max-width: 768px) {
+    header { padding: 15px 5%; }
+    .menu-principal, .header-actions .vendas-info { display: none; } /* Menu hamburguer seria o próximo passo aqui */
+}

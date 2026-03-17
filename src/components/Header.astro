@@ -1,0 +1,97 @@
+---
+import FeatureCard from './FeatureCard.astro';
+// CORREÇÃO: Aspa fechada corretamente e extensão .js adicionada
+import { ui } from '../utils/i18n.js';
+
+// Recebe o idioma da página atual (pt, en ou es)
+const { lang = 'pt' } = Astro.props;
+const t = ui[lang];
+---
+<header>
+    {/* CORREÇÃO: Links dinâmicos com caminhos absolutos para evitar erros de rota */}
+    <a href={lang === 'pt' ? '/' : `/${lang}/`} class="logo">Nexus<span>Flow</span></a>
+    
+    <nav class="menu-principal">
+        <div class="nav-item has-dropdown">
+            <a href="#">{t.navAccountants} ▼</a>
+            <div class="mega-menu">
+                <div class="container-menu">
+                    <FeatureCard icon="https://cdn-icons-png.flaticon.com/512/2618/2618245.png" title={t.featAccounting} desc={t.featAccountingDesc} />
+                    <FeatureCard icon="https://cdn-icons-png.flaticon.com/512/2830/2830284.png" title={t.featExtract} desc={t.featExtractDesc} />
+                    <FeatureCard icon="https://cdn-icons-png.flaticon.com/512/2912/2912761.png" title={t.featXml} desc={t.featXmlDesc} />
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-item has-dropdown">
+            <a href="#">{t.navCompanies} ▼</a>
+            <div class="mega-menu">
+                <div class="container-menu">
+                    <FeatureCard icon="https://cdn-icons-png.flaticon.com/512/3145/3145247.png" title={t.featSales} desc={t.featSalesDesc} />
+                    <FeatureCard icon="https://cdn-icons-png.flaticon.com/512/1162/1162456.png" title={t.featNfe} desc={t.featNfeDesc} />
+                    <FeatureCard icon="https://cdn-icons-png.flaticon.com/512/2643/2643330.png" title={t.featStock} desc={t.featStockDesc} />
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="nav-link">{t.navTaxReform}</a>
+        <a href="#" class="nav-link">API</a>
+    </nav>
+
+    <div class="header-actions">
+        <div class="vendas-info">
+            <span class="vendas-label">{t.salesLabel}</span>
+            <span class="vendas-numero">+55 19 99372-4653</span>
+        </div>
+        <a href="#" class="btn-primary">{t.btnClient}</a>
+        
+        <div class="lang-selector">
+            {/* CORREÇÃO: Uso de caminhos absolutos "/" para troca de idioma confiável */}
+            <a href="/" title="Português" class={lang === 'pt' ? 'active' : ''}>
+                <img src="https://flagcdn.com/w40/br.png" alt="PT">
+            </a>
+            <a href="/en/" title="English" class={lang === 'en' ? 'active' : ''}>
+                <img src="https://flagcdn.com/w40/us.png" alt="EN">
+            </a>
+            <a href="/es/" title="Español" class={lang === 'es' ? 'active' : ''}>
+                <img src="https://flagcdn.com/w40/es.png" alt="Es">
+            </a>
+        </div>
+    </div>
+</header>
+
+<style>
+    .lang-selector {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-left: 15px;
+        border-left: 1px solid rgba(0,0,0,0.1);
+        padding-left: 15px;
+    }
+
+    .lang-selector a {
+        display: flex;
+        align-items: center;
+        transition: transform 0.2s, filter 0.2s;
+        filter: grayscale(100%);
+        opacity: 0.6;
+    }
+
+    .lang-selector a:hover, .lang-selector a.active {
+        transform: scale(1.2);
+        filter: grayscale(0%);
+        opacity: 1;
+    }
+
+    .lang-selector img {
+        width: 22px;
+        height: auto;
+        border-radius: 2px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 768px) {
+        .lang-selector { border-left: none; padding-left: 0; margin-top: 10px; }
+    }
+</style>

@@ -1,0 +1,194 @@
+/* RESET E BASE */
+main > section {
+    padding: 120px 5%; /* Aumentei o espaçamento para o layout respirar */
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+/* SEÇÃO SEGMENTOS (Corrigido) */
+.segments { 
+    background: #fdfdfd; 
+}
+
+.segments-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Cards maiores */
+    gap: 30px; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.segment-card {
+    background: white; 
+    padding: 40px 20px; 
+    border-radius: 18px;
+    text-align: center; 
+    border: 1px solid #eee; 
+    transition: 0.4s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.segment-card:hover { 
+    border-color: var(--azul-vibrante); 
+    transform: translateY(-8px); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08); 
+}
+
+.segment-card span { 
+    font-size: 3rem; 
+    display: block; 
+    margin-bottom: 15px; 
+}
+
+.segment-card p { 
+    font-weight: 700; 
+    color: var(--azul-escuro); 
+    font-size: 1.1rem; 
+}
+
+/* SEÇÃO DEPOIMENTOS (Corrigido) */
+.testimonials { 
+    background: var(--branco); 
+}
+
+.testimonial-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 40px; 
+    max-width: 1100px; 
+    margin: 0 auto; 
+}
+
+.testimonial-card { 
+    background: var(--cinza-fundo); 
+    padding: 50px; 
+    border-radius: 20px; 
+    border: 1px solid var(--borda);
+    font-style: italic;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.testimonial-card::before { 
+    content: "“"; 
+    font-size: 5rem; 
+    color: var(--azul-vibrante); 
+    opacity: 0.2; 
+    position: absolute; 
+    top: 10px; 
+    left: 20px; 
+    font-family: Georgia, serif; 
+}
+
+/* SEÇÃO FAQ (Corrigido) */
+.faq { 
+    background: white; 
+}
+
+.faq-grid { 
+    max-width: 900px; 
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+}
+
+.faq-item { 
+    border-bottom: 1px solid #eee; 
+    padding: 30px 0; 
+    text-align: left; 
+}
+
+.faq-item h4 { 
+    color: var(--azul-escuro); 
+    margin-bottom: 15px; 
+    font-size: 1.3rem; 
+    font-weight: 700; 
+}
+
+.faq-item p { 
+    color: var(--cinza-texto); 
+    line-height: 1.7; 
+}
+
+/* --- CORREÇÃO DO CTA FINAL --- */
+.final-cta { 
+    background: var(--azul-escuro);
+    color: white !important;
+    text-align: center;
+    padding: 150px 5%;
+}
+
+.final-cta h2 { 
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    letter-spacing: -1px;
+    color: #ffffff !important;
+}
+
+.final-cta p { 
+    font-size: 1.3rem;
+    opacity: 0.9;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ffffff !important;
+}
+
+.cta-buttons { 
+    display: flex; 
+    gap: 30px; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+    margin-top: 40px; 
+}
+
+/* BOTÃO */
+.btn-secondary { 
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 16px 32px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-secondary:hover { 
+    background: rgba(255,255,255,0.1);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 992px) {
+    main > section { padding: 80px 5%; }
+    .final-cta h2 { font-size: 2.5rem; }
+    .segments-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .cta-buttons { 
+        flex-direction: column; 
+        gap: 15px; 
+        align-items: stretch; 
+    }
+    
+    .price-card { 
+        width: 100%; 
+        max-width: 400px; 
+    }
+}

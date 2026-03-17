@@ -1,0 +1,25 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  desc: string;
+}
+const { icon, title, desc } = Astro.props;
+---
+<div class="feature-card">
+    <div class="f-icon">
+        <img src={icon} alt={title} />
+    </div>
+    <div class="f-content">
+        <h3>{title}</h3>
+        <p>{desc}</p>
+    </div>
+</div>
+
+<style>
+    .feature-card { display: flex; gap: 15px; padding: 10px; transition: 0.2s; cursor: pointer; }
+    .feature-card:hover { background: #f8faff; border-radius: 8px; }
+    .f-icon img { width: 32px; height: 32px; }
+    h3 { font-size: 0.95rem; font-weight: 700; margin: 0 0 3px 0; color: #000; }
+    p { font-size: 0.8rem; color: #666; line-height: 1.3; margin: 0; }
+</style>
