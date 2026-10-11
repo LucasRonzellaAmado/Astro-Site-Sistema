@@ -1,133 +1,468 @@
 ---
-import { ui } from '../utils/i18n.js';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import "../styles/index.css";
+import '../styles/index.css';
 
-
-const lang = 'pt'; 
-const t = ui[lang];
+const demo = 'https://wa.me/5519993724653?text=Ol%C3%A1%21%20Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20NexusFlow.';
+const emailHref = 'mailto:lramado13@gmail.com?subject=Quero%20uma%20demonstra%C3%A7%C3%A3o%20do%20NexusFlow';
 ---
 
-<Layout title="NexusFlow - Gestão Simples e Barata para seu Comércio">
-	<Header lang={lang} />
-	
+<Layout title="NexusFlow — ERP simples para comércio e varejo">
+	<Header />
+
 	<main>
-		<section class="hero">
-			<div class="container-hero">
-				<div class="hero-text" data-aos="fade-right">
-					<span class="badge">{t.heroBadge}</span>
-					<h1>{t.heroTitle}</h1>
-					<p>{t.heroSub}</p>
+		<!-- 1. HERO -->
+		<section class="hero" id="topo">
+			<div class="wave" aria-hidden="true"></div>
+			<div class="container hero-grid">
+				<div data-aos="fade-right">
+					<span class="badge">ERP para comércio e varejo</span>
+					<h1>Venda, controle o estoque e feche o caixa <em>sem complicação.</em></h1>
+					<p class="hero-sub">
+						O NexusFlow reúne PDV, caixa, estoque, orçamentos, entregas e financeiro numa interface simples,
+						pensada para a rotina do balcão. Feito para quem precisa de um sistema que funcione sem treinamento longo.
+					</p>
 					<div class="hero-btns">
-						<a href="#" class="btn-primary">{t.btnDemo}</a>
+						<a href={demo} class="btn btn-primary" target="_blank" rel="noopener">Agendar demonstração</a>
+						<a href="#modulos" class="btn btn-ghost">Ver os módulos</a>
+					</div>
+					<div class="hero-proof">
+						<span>PDV com leitor de código de barras</span>
+						<span>Fiado com limite de crédito</span>
+						<span>Conferência de caixa</span>
 					</div>
 				</div>
-				<div class="hero-image" data-aos="fade-left">
-					<img src="/print-nexus.png" alt="Dashboard NexusFlow" />
+
+				<div class="hero-visual" data-aos="fade-left">
+					<div class="browser">
+						<div class="browser-bar"><i></i><i></i><i></i></div>
+						<img src="/print-nexus.png" alt="Painel do NexusFlow com resumo de faturamento, estoque crítico e propostas abertas" width="1366" height="640" />
+					</div>
+					<div class="float-tag">
+						Painel inicial
+						<strong>Tudo num só lugar</strong>
+					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="stats" data-aos="fade-up">
-			<div class="container-stats">
-				<div class="stat-item">
-					<h2>{t.statsTitle1}</h2>
-					<p>{t.statsDesc1}</p>
-				</div>
-				<div class="stat-item">
-					<h2>{t.statsTitle2}</h2>
-					<p>{t.statsDesc2}</p>
-				</div>
-				<div class="stat-item">
-					<h2>{t.statsTitle3}</h2>
-					<p>{t.statsDesc3}</p>
-				</div>
-			</div>
-		</section>
 
-		<section class="pricing">
+		<!-- HUB: módulos ao redor do núcleo -->
+		<section class="hub-section">
 			<div class="container">
-				<h2 class="section-title" data-aos="fade-up">{t.pricingTitle}</h2>
-				<div class="pricing-grid">
-					<div class="price-card" data-aos="fade-up" data-aos-delay="100">
-						<h3>{t.meiTitle}</h3>
-						<div class="price">{t.priceUnit} <span>49</span>,90{t.pricePeriod}</div>
-						<ul>
-							<li>✓ {t.featSales}</li>
-							<li>✓ {t.featStock}</li>
-							<li>✓ Suporte via WhatsApp</li>
-						</ul>
-						<a href="#" class="btn-primary">{t.btnStart}</a>
+				<div class="section-head" data-aos="fade-up">
+					<span class="eyebrow eyebrow-light">Plataforma integrada</span>
+					<h2 class="section-title section-title-light">Um núcleo, todos os módulos conectados</h2>
+					<p class="section-lead section-lead-light">Uma venda atualiza o estoque, o caixa e o financeiro. Você não precisa lançar nada duas vezes.</p>
+				</div>
+				<div class="hub">
+					<div class="hub-col">
+						<div class="hub-node" data-aos="fade-right"><i class="bi bi-cart3"></i><span>Vendas (PDV)</span></div>
+						<div class="hub-node" data-aos="fade-right" data-aos-delay="100"><i class="bi bi-cash-stack"></i><span>Caixa</span></div>
+						<div class="hub-node" data-aos="fade-right" data-aos-delay="200"><i class="bi bi-box-seam"></i><span>Estoque</span></div>
 					</div>
-					<div class="price-card featured" data-aos="fade-up" data-aos-delay="300">
-						<div class="tag">Mais Vendido</div>
-						<h3>{t.comercioTitle}</h3>
-						<div class="price">{t.priceUnit} <span>89</span>,90{t.pricePeriod}</div>
-						<ul>
-							<li>✓ {t.featSales} & {t.featStock}</li>
-							<li>✓ {t.featNfe}</li>
-							<li>✓ Relatórios de Desempenho</li>
-							<li>✓ {t.heroBadge}</li>
-						</ul>
-						<a href="#" class="btn-primary">{t.btnStart}</a>
+					<div class="hub-core" data-aos="zoom-in">
+						<div class="hub-ring"></div>
+						<div class="hub-logo">
+							<span class="logo-mark logo-mark-glow" aria-hidden="true">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+									<path d="M12 4A8 8 0 0 1 19.52 14.74" />
+									<path d="M18.93 16A8 8 0 0 1 5.87 17.14" />
+									<path d="M5.07 16A8 8 0 0 1 10.61 4.12" />
+								</svg>
+							</span>
+							<strong>NexusFlow</strong>
+						</div>
+					</div>
+					<div class="hub-col">
+						<div class="hub-node" data-aos="fade-left"><i class="bi bi-graph-up"></i><span>Relatórios</span></div>
+						<div class="hub-node" data-aos="fade-left" data-aos-delay="100"><i class="bi bi-arrow-down-circle"></i><span>Financeiro</span></div>
+						<div class="hub-node" data-aos="fade-left" data-aos-delay="200"><i class="bi bi-shield-check"></i><span>Segurança</span></div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="segments">
+		<!-- 2. DIFERENCIAIS -->
+		<section class="strip" aria-label="Diferenciais">
+			<div class="container strip-grid">
+				<div class="strip-item" data-aos="fade-up">
+					<div class="strip-icon"><i class="bi bi-cart3"></i></div>
+					<div>
+						<h3>PDV em duas colunas</h3>
+						<p>Monte a venda à esquerda e feche com desconto, entrega e pagamento à direita.</p>
+					</div>
+				</div>
+				<div class="strip-item" data-aos="fade-up" data-aos-delay="100">
+					<div class="strip-icon"><i class="bi bi-people"></i></div>
+					<div>
+						<h3>5 níveis de acesso</h3>
+						<p>Cada pessoa vê só as telas do seu papel: administrador, gerente, vendedor, caixa e estoque.</p>
+					</div>
+				</div>
+				<div class="strip-item" data-aos="fade-up" data-aos-delay="200">
+					<div class="strip-icon"><i class="bi bi-buildings"></i></div>
+					<div>
+						<h3>Multi-empresa</h3>
+						<p>Um mesmo sistema atende várias empresas, cada uma enxergando apenas os próprios dados.</p>
+					</div>
+				</div>
+				<div class="strip-item" data-aos="fade-up" data-aos-delay="300">
+					<div class="strip-icon"><i class="bi bi-shield-check"></i></div>
+					<div>
+						<h3>Log de auditoria</h3>
+						<p>Registro de login, vendas, financeiro e alterações de cadastro, com filtro por usuário e ação.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 3. PARA QUEM É -->
+		<section class="seg-section" id="solucao">
 			<div class="container">
-				<h2 class="section-title" data-aos="fade-up">Feito para o seu comércio</h2>
+				<div class="section-head" data-aos="fade-up">
+					<span class="eyebrow eyebrow-light">Para quem é</span>
+					<h2 class="section-title section-title-light">Feito para a rotina do comércio</h2>
+					<p class="section-lead section-lead-light">Pequenos e médios negócios de varejo que vendem no balcão, entregam em casa e precisam controlar o dinheiro todo dia.</p>
+				</div>
 				<div class="segments-grid">
-					<div class="segment-card" data-aos="flip-left"><span>👕</span><p>Lojas de Roupas</p></div>
-					<div class="segment-card" data-aos="flip-left" data-aos-delay="100"><span>🍎</span><p>Hortifruti & Mercados</p></div>
-					<div class="segment-card" data-aos="flip-left" data-aos-delay="200"><span>🔧</span><p>Materiais de Construção</p></div>
-					<div class="segment-card" data-aos="flip-left" data-aos-delay="300"><span>🍔</span><p>Lanchonetes</p></div>
+					<div class="segment-card" data-aos="fade-up">
+						<span class="seg-icon"><i class="bi bi-bag"></i></span>
+						<h3>Lojas de roupas</h3>
+						<p>Venda rápida, controle de estoque e cliente com crédito.</p>
+					</div>
+					<div class="segment-card" data-aos="fade-up" data-aos-delay="100">
+						<span class="seg-icon"><i class="bi bi-basket"></i></span>
+						<h3>Hortifruti e mercados</h3>
+						<p>Balcão ágil, leitor de código de barras e caixa conferido.</p>
+					</div>
+					<div class="segment-card" data-aos="fade-up" data-aos-delay="200">
+						<span class="seg-icon"><i class="bi bi-tools"></i></span>
+						<h3>Materiais de construção</h3>
+						<p>Orçamentos, entregas e contas a pagar com fornecedores.</p>
+					</div>
+					<div class="segment-card" data-aos="fade-up" data-aos-delay="300">
+						<span class="seg-icon"><i class="bi bi-cup-hot"></i></span>
+						<h3>Lanchonetes</h3>
+						<p>Venda no balcão, retirada, entrega com taxa e cupom térmico.</p>
+					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="testimonials">
+		<!-- 4. PDV EM DESTAQUE -->
+		<section id="pdv">
+			<div class="container split">
+				<div data-aos="fade-right">
+					<span class="eyebrow">PDV (frente de caixa)</span>
+					<h2 class="section-title">Uma venda rápida, do primeiro item ao cupom.</h2>
+					<p class="section-lead">A tela de venda foi desenhada para quem atende de pé, com a mão no leitor e o cliente esperando.</p>
+					<ul class="check-list">
+						<li><span><strong>Identifique o cliente</strong> por ID ou nome. Sem cadastro, a venda vai para "Consumidor Final".</span></li>
+						<li><span><strong>Adicione itens</strong> pela busca ou com o <strong>leitor de código de barras</strong>, informando a quantidade.</span></li>
+						<li><span><strong>Desconto e tipo de pedido:</strong> balcão, retirada ou entrega, com endereço e taxa de entrega.</span></li>
+						<li><span><strong>Pagamento:</strong> dinheiro, Pix, débito, crédito parcelado ou <strong>fiado</strong>, com checagem do limite do cliente.</span></li>
+						<li><span><strong>Cupom não fiscal</strong> impresso na impressora térmica de 58 mm ao finalizar.</span></li>
+					</ul>
+				</div>
+
+				<div class="pdv" data-aos="fade-left" aria-label="Exemplo de tela de venda">
+					<div class="pdv-head">
+						<b>Nova venda</b>
+						<span class="chip chip-info">Caixa aberto</span>
+					</div>
+					<div class="pdv-body">
+						<div class="pdv-items">
+							<table>
+								<thead>
+									<tr><th>Produto</th><th>Qtd</th><th class="num">Subtotal</th></tr>
+								</thead>
+								<tbody>
+									<tr><td>Camiseta básica P</td><td>2</td><td class="num">R$ 79,80</td></tr>
+									<tr><td>Meia algodão</td><td>3</td><td class="num">R$ 29,70</td></tr>
+									<tr><td>Boné aba curva</td><td>1</td><td class="num">R$ 39,90</td></tr>
+								</tbody>
+							</table>
+							<div class="pdv-scan">▮▮▯▮▯▮▮▯ Leitor de código de barras ativo</div>
+						</div>
+						<div class="pdv-side">
+							<div class="pdv-line"><span>Subtotal</span><span>R$ 149,40</span></div>
+							<div class="pdv-line"><span>Desconto</span><span>- R$ 9,40</span></div>
+							<div class="pay-chips">
+								<span>Dinheiro</span><span class="on">Pix</span><span>Débito</span><span>Crédito</span><span>Fiado</span>
+							</div>
+							<div class="pdv-total">
+								<small>Total final</small>
+								<b>R$ 140,00</b>
+							</div>
+							<span class="pdv-finish">FINALIZAR VENDA</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 5. MÓDULOS -->
+		<section class="bg-soft" id="modulos">
 			<div class="container">
-				<h2 class="section-title" data-aos="fade-up">{t.testimonyTitle}</h2>
-				<div class="testimonial-grid">
-					<div class="testimonial-card" data-aos="fade-right">
-						<p>"O NexusFlow mudou a forma como controlo meu estoque. É simples e o suporte do Lucas é sensacional."</p>
-						<div class="client-info"><strong>Ricardo Silva</strong><span>Dono de Hortifruti</span></div>
-					</div>
+				<div class="section-head" data-aos="fade-up">
+					<span class="eyebrow">Módulos</span>
+					<h2 class="section-title">Tudo que a loja precisa, num só sistema</h2>
+					<p class="section-lead">Da venda no balcão ao fechamento do mês, cada módulo conversa com o outro.</p>
+				</div>
+				<div class="tabs" role="tablist" aria-label="Filtrar módulos">
+					<button class="tab is-active" data-filter="all">Todos</button>
+					<button class="tab" data-filter="vendas">Vendas e caixa</button>
+					<button class="tab" data-filter="estoque">Estoque e compras</button>
+					<button class="tab" data-filter="financeiro">Financeiro e gestão</button>
+				</div>
+				<div class="modules-grid">
+					<div data-group="vendas" class="module-card" data-aos="fade-up"><i class="bi bi-cart3 m-icon"></i><h3>Vendas (PDV)</h3><p>Venda rápida com leitor, fiado, parcelamento e cupom térmico.</p></div>
+					<div data-group="vendas" class="module-card c-green" data-aos="fade-up"><i class="bi bi-file-earmark-text m-icon"></i><h3>Orçamentos</h3><p>Crie a proposta, aprove, converta em venda com baixa de estoque e imprima.</p></div>
+					<div data-group="vendas" class="module-card c-navy" data-aos="fade-up"><i class="bi bi-truck m-icon"></i><h3>Entregas</h3><p>Painel de despacho com entregador definido e conclusão das entregas em rota.</p></div>
+					<div data-group="vendas" class="module-card c-green" data-aos="fade-up"><i class="bi bi-cash-stack m-icon"></i><h3>Caixa</h3><p>Abertura e fechamento de turno, sangria, suprimento e conferência física.</p></div>
+
+					<div data-group="vendas" class="module-card" data-aos="fade-up"><i class="bi bi-people m-icon"></i><h3>Clientes</h3><p>Cadastro PF e PJ, endereço, limite de crédito e saldo devedor do fiado.</p></div>
+					<div data-group="estoque" class="module-card" data-aos="fade-up"><i class="bi bi-box-seam m-icon"></i><h3>Estoque</h3><p>Preço de custo e venda, margem, NCM, lote, validade e estoque mínimo com alerta.</p></div>
+					<div data-group="estoque" class="module-card" data-aos="fade-up"><i class="bi bi-building m-icon"></i><h3>Fornecedores</h3><p>Dados fiscais, contato e dados bancários ou Pix para cada fornecedor.</p></div>
+					<div data-group="estoque" class="module-card" data-aos="fade-up"><i class="bi bi-clipboard-check m-icon"></i><h3>Pedido de compra</h3><p>Monte o pedido a partir dos produtos do fornecedor e gere a conta a pagar.</p></div>
+
+					<div data-group="financeiro" class="module-card c-red" data-aos="fade-up"><i class="bi bi-arrow-up-circle m-icon"></i><h3>Contas a pagar</h3><p>Lançamento, filtro por pendente, atrasado ou pago e baixa com um clique.</p></div>
+					<div data-group="financeiro" class="module-card c-green" data-aos="fade-up"><i class="bi bi-arrow-down-circle m-icon"></i><h3>Contas a receber</h3><p>O fiado do PDV alimenta o contas a receber automaticamente.</p></div>
+					<div data-group="financeiro" class="module-card c-navy" data-aos="fade-up"><i class="bi bi-graph-up m-icon"></i><h3>Relatórios</h3><p>Curva ABC, comissão de vendedores, estoque valorizado, ranking de clientes e DRE simplificado.</p></div>
+					<div data-group="financeiro" class="module-card" data-aos="fade-up"><i class="bi bi-speedometer2 m-icon"></i><h3>Painel inicial</h3><p>Vendas do dia, estoque baixo, orçamentos pendentes e gráficos dos últimos 7 dias.</p></div>
 				</div>
 			</div>
 		</section>
 
-		<section class="faq">
+
+		<!-- CTA INTERMEDIÁRIO -->
+		<section class="cta-banner">
+			<div class="container banner-inner">
+				<div>
+					<h3>Quer ver o NexusFlow funcionando na sua rotina?</h3>
+					<p>Mostramos o sistema com dados de exemplo e depois montamos a proposta com você.</p>
+				</div>
+				<a href={demo} class="btn btn-primary" target="_blank" rel="noopener">Agendar demonstração</a>
+			</div>
+		</section>
+
+		<!-- 6. CAIXA E FINANCEIRO -->
+		<section>
 			<div class="container">
-				<h2 class="section-title" data-aos="fade-up">{t.faqTitle}</h2>
-				<div class="faq-grid">
-					<div class="faq-item" data-aos="fade-up">
-						<h4>{t.faqQ1}</h4>
-						<p>{t.faqA1}</p>
+				<div class="split" style="align-items:start">
+					<div data-aos="fade-right">
+						<span class="eyebrow">Caixa e financeiro</span>
+						<h2 class="section-title">Feche o caixa conferindo o que o sistema esperava.</h2>
+						<p class="section-lead">Na hora do fechamento, você confere dinheiro, cartão e Pix contra o valor calculado pelo NexusFlow. O resultado aparece na hora.</p>
 					</div>
-					<div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-						<h4>{t.faqQ2}</h4>
-						<p>{t.faqA2}</p>
+					<div class="cash-note" data-aos="fade-left" style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:26px;box-shadow:var(--shadow-card);font-size:.95rem">
+						<strong style="color:var(--text);display:block;margin-bottom:12px">Além da conferência</strong>
+						<ul class="check-list" style="margin-top:0">
+							<li><span><strong>Sangria</strong> (retirada) e <strong>suprimento</strong> (entrada) registrados manualmente.</span></li>
+							<li><span><strong>Bloqueio do PDV</strong> com caixa fechado: o sistema avisa e leva você para a tela de caixa.</span></li>
+							<li><span><strong>Histórico de vendas</strong> com filtro por período e status, e reimpressão de cupom.</span></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="cash-grid" style="margin-top:56px">
+					<div class="cash-card ok" data-aos="fade-up">
+						<span class="chip chip-ok">Batido</span>
+						<h3>Caixa conferido</h3>
+						<p>O valor físico bate com o que o sistema esperava. Tudo certo.</p>
+					</div>
+					<div class="cash-card info" data-aos="fade-up" data-aos-delay="100">
+						<span class="chip chip-info">Sobra</span>
+						<h3>Valor a mais no caixa</h3>
+						<p>Mais dinheiro do que o esperado. Fica registrado para você investigar.</p>
+					</div>
+					<div class="cash-card err" data-aos="fade-up" data-aos-delay="200">
+						<span class="chip chip-err">Falta</span>
+						<h3>Valor a menos no caixa</h3>
+						<p>Menos do que o esperado. Também fica registrado, com o detalhe da diferença.</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="final-cta" data-aos="zoom-in">
-			<div class="container-cta">
-				<h2>{t.finalCtaTitle}</h2>
-				<p>{t.finalCtaSub}</p>
-				<div class="cta-buttons">
-					<a href="#" class="btn-primary">{t.btnTest}</a>
-					<a href="https://wa.me/5519988887777" class="btn-secondary">{t.btnDev}</a>
+		<!-- 7. CONTROLE DE ACESSO -->
+		<section class="bg-alt">
+			<div class="container">
+				<div class="section-head" data-aos="fade-up">
+					<span class="eyebrow">Controle de acesso</span>
+					<h2 class="section-title">Cada pessoa vê só o que o seu papel precisa</h2>
+					<p class="section-lead">O menu mostra apenas as telas do seu nível, e cada página confere a permissão no servidor.</p>
 				</div>
+				<div class="access-table-wrap" data-aos="fade-up">
+					<table class="access-table">
+						<thead>
+							<tr><th>Nível</th><th>Acesso principal</th><th>Foco</th></tr>
+						</thead>
+						<tbody>
+							<tr><td>Administrador</td><td>Tudo, inclusive formas de pagamento e auditoria</td><td>Dono ou responsável geral</td></tr>
+							<tr><td>Gerente</td><td>Vendas, caixa, clientes, estoque, fornecedores, compras, financeiro, relatórios, fiscal e usuários</td><td>Gestão do dia a dia</td></tr>
+							<tr><td>Vendedor</td><td>Venda, orçamento, históricos, entregas e clientes</td><td>Balcão e atendimento</td></tr>
+							<tr><td>Caixa</td><td>Caixa, históricos e entregas</td><td>Fechamento e recebimento</td></tr>
+							<tr><td>Estoque</td><td>Estoque, pedido de compra, categorias e marcas</td><td>Reposição e cadastros</td></tr>
+						</tbody>
+					</table>
+					<p class="access-note">Desativar uma conta derruba o acesso imediatamente.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- 8. SEGURANÇA E MULTI-EMPRESA -->
+		<section id="seguranca">
+			<div class="container two-col">
+				<div class="feature-panel dark" data-aos="fade-right">
+					<h3>Segurança</h3>
+					<p>Medidas que estão implementadas no código do sistema:</p>
+					<ul class="check-list">
+						<li>Senhas protegidas com <strong>bcrypt</strong>.</li>
+						<li>Consultas ao banco com <strong>prepared statements</strong> na maior parte do sistema.</li>
+						<li>Token <strong>CSRF</strong> em formulários e chamadas que alteram dados.</li>
+						<li>Bloqueio de login após <strong>5 tentativas em 1 minuto</strong>.</li>
+						<li>Cookies de sessão <strong>HttpOnly</strong>, <strong>SameSite</strong> e <strong>Secure</strong> em HTTPS.</li>
+						<li>Preço e estoque <strong>revalidados no servidor</strong> a cada venda.</li>
+						<li>Credenciais do banco fora da pasta pública.</li>
+					</ul>
+				</div>
+
+				<div class="feature-panel" data-aos="fade-left">
+					<h3>Multi-empresa</h3>
+					<p>Um único sistema atende várias empresas, sem que uma veja os dados da outra.</p>
+					<ul class="check-list">
+						<li><strong>Dados isolados</strong> por empresa.</li>
+						<li>O <strong>super admin</strong> cadastra novas empresas, com o login do administrador de cada uma.</li>
+						<li>Formas de pagamento padrão e o cliente "Consumidor Final" são criados automaticamente.</li>
+					</ul>
+					<p style="margin-top:18px;font-size:.9rem;color:var(--text-muted)">Importante: multi-filial (várias lojas compartilhando estoque) ainda não existe.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- 9. TRANSPARÊNCIA -->
+		<section class="bg-soft" id="limites">
+			<div class="container">
+				<div class="honest" data-aos="fade-up">
+					<h3>O que o NexusFlow ainda não faz</h3>
+					<p>Preferimos ser diretos. Antes de contratar, saiba o que está fora do escopo atual:</p>
+					<div class="honest-grid">
+						<div class="honest-item">Não emite NF-e nem NFC-e junto à SEFAZ. Existe controle interno de notas e exportação de XML em lote, com caminho para integrar um emissor homologado.</div>
+						<div class="honest-item">O cupom é não fiscal.</div>
+						<div class="honest-item">Não tem folha de pagamento nem RH.</div>
+						<div class="honest-item">Não tem contabilidade formal (livros fiscais e SPED).</div>
+						<div class="honest-item">Não tem multi-filial.</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 10. INVESTIMENTO -->
+		<section id="investimento">
+			<div class="container price-wrap">
+				<div class="price-info" data-aos="fade-right">
+					<span class="eyebrow">Investimento</span>
+					<h2>Um valor claro, definido na proposta.</h2>
+					<p>Sem taxa de adesão escondida. Você conversa com a gente, entende o que a sua loja precisa e recebe a proposta com tudo detalhado.</p>
+					<p>Quer testar antes? Peça uma demonstração pelo WhatsApp e veja o sistema com dados de exemplo.</p>
+				</div>
+
+				<div class="price-card" data-aos="fade-left">
+					<span class="tag">Plano NexusFlow</span>
+					<h3>Para o seu comércio</h3>
+					<div class="price-value">R$ 129,90 <small>/mês</small></div>
+					<ul class="check-list">
+						<li>PDV com leitor, fiado e cupom térmico</li>
+						<li>Caixa com conferência e sangria/suprimento</li>
+						<li>Estoque, clientes e fornecedores</li>
+						<li>Orçamentos e entregas</li>
+						<li>Contas a pagar e a receber</li>
+						<li>Relatórios gerenciais</li>
+						<li>5 níveis de acesso e auditoria</li>
+					</ul>
+					<a href={demo} class="btn btn-primary btn-block" target="_blank" rel="noopener">Solicitar proposta</a>
+					<p class="price-note">Valor sugerido para lançamento. Condições e cobrança detalhadas na proposta.</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- 11. FAQ -->
+		<section class="bg-soft" id="faq">
+			<div class="container">
+				<div class="section-head" data-aos="fade-up">
+					<span class="eyebrow">Dúvidas</span>
+					<h2 class="section-title">Perguntas frequentes</h2>
+				</div>
+				<div class="faq-list">
+					<details class="faq-item" data-aos="fade-up" open>
+						<summary>O sistema emite nota fiscal eletrônica?</summary>
+						<p>Não diretamente. O NexusFlow faz o controle interno das notas: status, cancelamento com motivo e exportação de XML em lote. A emissão junto à SEFAZ exige certificado digital e um emissor homologado, e o sistema tem caminho para integrar um deles.</p>
+					</details>
+					<details class="faq-item" data-aos="fade-up">
+						<summary>O cupom impresso é fiscal?</summary>
+						<p>Não. O cupom é não fiscal, impresso em impressora térmica de 58 mm ao finalizar a venda.</p>
+					</details>
+					<details class="faq-item" data-aos="fade-up">
+						<summary>Quais formas de pagamento o PDV aceita?</summary>
+						<p>Dinheiro, Pix, cartão de débito, cartão de crédito (com parcelamento) e fiado, que é a venda a prazo com checagem do limite de crédito do cliente. Cada empresa pode cadastrar as próprias formas.</p>
+					</details>
+					<details class="faq-item" data-aos="fade-up">
+						<summary>Tenho mais de uma loja. Dá para usar?</summary>
+						<p>Ainda não. Cada empresa tem os próprios dados, mas o sistema não tem multi-filial, ou seja, várias lojas compartilhando estoque.</p>
+					</details>
+					<details class="faq-item" data-aos="fade-up">
+						<summary>Como o sistema é hospedado?</summary>
+						<p>É um sistema web feito em PHP 8 com MySQL ou MariaDB. Pode rodar em Apache, Nginx com PHP-FPM ou no servidor embutido do PHP. A forma de hospedagem é definida junto com a proposta.</p>
+					</details>
+					<details class="faq-item" data-aos="fade-up">
+						<summary>Quanto custa?</summary>
+						<p>O valor depende do seu caso. Fale com a gente pelo WhatsApp ou e-mail e a proposta será enviada com os detalhes.</p>
+					</details>
+				</div>
+			</div>
+		</section>
+
+		<!-- 12. CTA FINAL -->
+		<section class="final-cta">
+			<div class="container">
+				<h2>Pronto para organizar a rotina da sua loja?</h2>
+				<p>Agende uma demonstração de vinte minutos e veja o NexusFlow funcionando com dados de exemplo, do primeiro item ao fechamento do caixa.</p>
+				<div class="hero-btns">
+					<a href={demo} class="btn btn-green" target="_blank" rel="noopener">Agendar demonstração</a>
+					<a href={emailHref} class="btn btn-light">Enviar e-mail</a>
+				</div>
+				<small>Atendimento direto com o desenvolvedor · Americana, SP</small>
 			</div>
 		</section>
 	</main>
 
-	<Footer lang={lang} />
+	<Footer />
 </Layout>
+
+	<script>
+		const tabs = document.querySelectorAll<HTMLButtonElement>('.tab');
+		const cards = document.querySelectorAll<HTMLElement>('.module-card');
+		tabs.forEach((tab) =>
+			tab.addEventListener('click', () => {
+				tabs.forEach((t) => t.classList.remove('is-active'));
+				tab.classList.add('is-active');
+				const f = tab.dataset.filter;
+				cards.forEach((c) => {
+					c.hidden = f !== 'all' && c.dataset.group !== f;
+				});
+			})
+		);
+	</script>
+
+	<script>
+		document.querySelectorAll<HTMLElement>('.module-card').forEach((card) => {
+			card.addEventListener('pointermove', (e) => {
+				const r = card.getBoundingClientRect();
+				card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+				card.style.setProperty('--my', `${e.clientY - r.top}px`);
+			});
+		});
+	</script>

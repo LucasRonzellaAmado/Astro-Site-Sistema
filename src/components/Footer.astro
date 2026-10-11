@@ -1,94 +1,43 @@
 ---
 const year = new Date().getFullYear();
 ---
-<footer>
-    <div class="container-footer">
-        <div class="footer-info">
-            <div class="logo">Nexus<span>Flow</span></div>
-            <p>Simplificando a gestão do comércio brasileiro com tecnologia acessível e suporte humano.</p>
-        </div>
-        <div class="footer-links">
-            <h4>Navegação</h4>
-            <a href="#">Home</a>
-            <a href="#">Contadores</a>
-            <a href="#">Empresas</a>
-            <a href="#">API</a>
-        </div>
-        <div class="footer-contact">
-            <h4>Contato</h4>
-            <p><strong>Suporte:</strong>+55 19 99372-4653</p>
-            <p><strong>E-mail:</strong> contato@nexusflow.com.br</p>
-            <p>Americana, SP</p>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; {year} NexusFlow - Gestão Inteligente. Todos os direitos reservados.</p>
-    </div>
+<footer class="site-footer">
+	<div class="container">
+		<div class="footer-grid">
+			<div class="footer-brand">
+				<a href="/" class="logo">
+					<span class="logo-mark" aria-hidden="true">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+							<path d="M12 4A8 8 0 0 1 19.52 14.74" />
+							<path d="M18.93 16A8 8 0 0 1 5.87 17.14" />
+							<path d="M5.07 16A8 8 0 0 1 10.61 4.12" />
+						</svg>
+					</span>
+					<span>Nexus<span>Flow</span></span>
+				</a>
+				<p>ERP para pequenos e médios negócios de comércio e varejo. Vendas, caixa, estoque e financeiro em um só lugar.</p>
+			</div>
+
+			<div class="footer-col">
+				<h4>Navegação</h4>
+				<a href="/#solucao">Solução</a>
+				<a href="/#modulos">Módulos</a>
+				<a href="/#seguranca">Segurança</a>
+				<a href="/#investimento">Investimento</a>
+				<a href="/#faq">Dúvidas frequentes</a>
+			</div>
+
+			<div class="footer-col">
+				<h4>Contato</h4>
+				<a href="https://wa.me/5519993724653" target="_blank" rel="noopener">Telefone: +55 19 99372-4653</a>
+				<a href="mailto:lramado13@gmail.com">lramado13@gmail.com</a>
+				<p>Americana, SP</p>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<span>&copy; {year} NexusFlow. Todos os direitos reservados.</span>
+			<span>Desenvolvido por Lucas Amado</span>
+		</div>
+	</div>
 </footer>
-
-<style>
-    footer { 
-        background: #051937; 
-        color: white; 
-        padding: 80px 0 30px 0; 
-        margin-top: 100px; 
-    }
-    .container-footer { 
-        max-width: 1200px; 
-        margin: 0 auto; 
-        display: grid; 
-        grid-template-columns: 2fr 1fr 1fr; 
-        gap: 60px; 
-        padding: 0 5%;
-    }
-    .footer-info .logo { 
-        font-size: 30px; 
-        font-weight: 800;
-        color: white; 
-        margin-bottom: 20px; 
-        text-decoration: none;
-        display: block;
-    }
-    .footer-info .logo span { color: #007bff; }
-    .footer-info p { opacity: 0.8; max-width: 320px; font-size: 15px; }
-
-    .footer-links h4, .footer-contact h4 { 
-        margin-bottom: 25px; 
-        font-size: 18px; 
-        font-weight: 700;
-        letter-spacing: 0.5px;
-    }
-    .footer-links a { 
-        display: block; 
-        color: white; 
-        opacity: 0.7; 
-        text-decoration: none; 
-        margin-bottom: 12px; 
-        transition: 0.3s;
-        font-size: 15px;
-    }
-    .footer-links a:hover { opacity: 1; color: #007bff; transform: translateX(5px); }
-    
-    .footer-contact p { opacity: 0.8; margin-bottom: 12px; font-size: 15px; }
-    .footer-contact strong { color: #007bff; font-weight: 600; }
-
-    .footer-bottom { 
-        border-top: 1px solid rgba(255,255,255,0.1); 
-        margin-top: 60px; 
-        padding-top: 30px; 
-        text-align: center; 
-        font-size: 14px; 
-        opacity: 0.6; 
-    }
-
-    /* Ajuste para Celular */
-    @media (max-width: 768px) {
-        .container-footer {
-            grid-template-columns: 1fr;
-            text-align: center;
-            gap: 40px;
-        }
-        .footer-info p { margin: 0 auto; }
-        .footer-links a:hover { transform: none; }
-    }
-</style>

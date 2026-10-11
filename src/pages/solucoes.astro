@@ -1,0 +1,182 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/index.css';
+
+const demo = 'https://wa.me/5519993724653?text=Ol%C3%A1%21%20Quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20NexusFlow.';
+
+const solutions = [
+	{
+		id: 'pdv',
+		eyebrow: 'Vendas',
+		title: 'Frente de caixa rápida para o balcão',
+		text: 'Venda com leitor de código de barras, desconto, entrega com taxa e pagamento em dinheiro, Pix, cartão ou fiado. Tudo com o caixa aberto e conferido.',
+		items: [
+			'Busca por ID ou nome e leitor de código de barras',
+			'Pedido de balcão, retirada ou entrega',
+			'Crédito parcelado e fiado com limite do cliente',
+			'Cupom não fiscal na impressora térmica de 58 mm',
+		],
+		icon: 'bi-cart3',
+	},
+	{
+		id: 'orcamentos',
+		eyebrow: 'Vendas',
+		title: 'Orçamentos que viram venda',
+		text: 'Monte a proposta, aprove e converta em venda com baixa automática no estoque. Acompanhe o funil pelo histórico de orçamentos.',
+		items: [
+			'Criar, aprovar, cancelar e imprimir propostas',
+			'Conversão em venda com baixa de estoque',
+			'Histórico com filtro por período e status',
+		],
+		icon: 'bi-file-earmark-text',
+		reverse: true,
+	},
+	{
+		id: 'caixa',
+		eyebrow: 'Caixa',
+		title: 'Feche o caixa com conferência',
+		text: 'Abertura e fechamento de turno com conferência física de dinheiro, cartão e Pix contra o valor esperado pelo sistema.',
+		items: [
+			'Resultado batido, sobra ou falta, registrado na hora',
+			'Sangria e suprimento manuais',
+			'PDV bloqueado com caixa fechado',
+		],
+		icon: 'bi-cash-stack',
+	},
+	{
+		id: 'estoque',
+		eyebrow: 'Estoque e compras',
+		title: 'Estoque sob controle',
+		text: 'Produtos com custo, venda, margem, tributação, lote e validade. Estoque mínimo gera alerta no painel para você repor a tempo.',
+		items: [
+			'Código de barras, categoria e marca',
+			'Alerta de estoque baixo no painel inicial',
+			'Desativar produto não apaga o histórico de vendas',
+		],
+		icon: 'bi-box-seam',
+		reverse: true,
+	},
+	{
+		id: 'compras',
+		eyebrow: 'Estoque e compras',
+		title: 'Pedido de compra com conta a pagar',
+		text: 'Monte o pedido a partir dos produtos do fornecedor. Ao gerar o pedido, a conta a pagar é criada automaticamente.',
+		items: [
+			'Pedido por fornecedor, com produtos e quantidades',
+			'Conta a pagar gerada sem digitação extra',
+			'Cadastro de fornecedor com dados bancários e Pix',
+		],
+		icon: 'bi-clipboard-check',
+	},
+	{
+		id: 'financeiro',
+		eyebrow: 'Financeiro',
+		title: 'Contas a pagar e a receber',
+		text: 'Veja o que vence, o que está atrasado e o que já foi pago. O fiado do PDV entra automaticamente em contas a receber.',
+		items: [
+			'Lançamento manual com filtro por status',
+			'Baixa com um clique',
+			'Saldo devedor do fiado por cliente',
+		],
+		icon: 'bi-arrow-down-circle',
+		reverse: true,
+	},
+	{
+		id: 'relatorios',
+		eyebrow: 'Gestão',
+		title: 'Relatórios para decidir',
+		text: 'Relatórios gerenciais para entender o que vende, quem vende e como está o resultado do período.',
+		items: [
+			'Curva ABC de produtos',
+			'Comissão de vendedores com percentual configurável',
+			'Estoque valorizado e ranking de clientes',
+			'DRE simplificado',
+		],
+		icon: 'bi-graph-up',
+	},
+	{
+		id: 'fiscal',
+		eyebrow: 'Fiscal',
+		title: 'Controle interno de notas',
+		text: 'Acompanhe o status das notas, cancele com motivo e exporte os XMLs em lote. A emissão junto à SEFAZ não é feita pelo sistema.',
+		items: [
+			'Filtro por status e cancelamento com motivo',
+			'Exportação de XMLs em lote',
+			'Caminho para integrar um emissor homologado',
+		],
+		icon: 'bi-file-earmark-ruled',
+		reverse: true,
+	},
+	{
+		id: 'acesso',
+		eyebrow: 'Administração',
+		title: 'Acesso por função e auditoria',
+		text: 'Cada pessoa vê só as telas do seu papel. Um log registra login, vendas, financeiro e alterações de cadastro.',
+		items: [
+			'5 níveis: administrador, gerente, vendedor, caixa e estoque',
+			'Permissão conferida no servidor em cada página',
+			'Auditoria com filtro por usuário e ação',
+		],
+		icon: 'bi-shield-check',
+	},
+];
+---
+
+<Layout title="Soluções — NexusFlow ERP para comércio e varejo" description="Conheça as soluções do NexusFlow: PDV, orçamentos, caixa, estoque, compras, financeiro, relatórios e controle de acesso para o seu comércio.">
+	<Header />
+
+	<main>
+		<!-- HERO -->
+		<section class="hero">
+			<div class="container">
+				<div style="max-width:760px" data-aos="fade-up">
+					<span class="badge">Soluções</span>
+					<h1 style="margin-top:22px">Um sistema para cada parte da rotina da loja.</h1>
+					<p class="hero-sub">Do balcão ao fechamento do mês. Veja como cada solução do NexusFlow resolve o dia a dia do seu comércio.</p>
+					<div class="hero-btns">
+						<a href={demo} class="btn btn-primary" target="_blank" rel="noopener">Agendar demonstração</a>
+						<a href="/#investimento" class="btn btn-ghost">Ver investimento</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- SOLUÇÕES ALTERNADAS -->
+		{solutions.map((s, i) => (
+			<section id={s.id} class={i % 2 === 0 ? 'bg-soft' : ''}>
+				<div class={`container split${s.reverse ? ' split-rev' : ''}`}>
+					<div data-aos={s.reverse ? 'fade-left' : 'fade-right'} class={s.reverse ? 'order-2' : ''}>
+						<span class="eyebrow">{s.eyebrow}</span>
+						<h2 class="section-title">{s.title}</h2>
+						<p class="section-lead">{s.text}</p>
+						<ul class="check-list">
+							{s.items.map((it) => <li><span>{it}</span></li>)}
+						</ul>
+						<a href={demo} class="btn btn-ghost" style="margin-top:30px" target="_blank" rel="noopener">Quero ver isso no sistema</a>
+					</div>
+					<div class={`sol-card${s.reverse ? ' order-1' : ''}`} data-aos={s.reverse ? 'fade-right' : 'fade-left'}>
+						<i class={`bi ${s.icon}`} aria-hidden="true"></i>
+						<span>{s.eyebrow}</span>
+						<strong>{s.title}</strong>
+					</div>
+				</div>
+			</section>
+		))}
+
+		<!-- CTA FINAL -->
+		<section class="final-cta">
+			<div class="container">
+				<h2>Escolha as soluções que a sua loja precisa.</h2>
+				<p>Conte como funciona o seu balcão, o seu caixa e o seu estoque. Mostramos o sistema com dados de exemplo e montamos a proposta com você.</p>
+				<div class="hero-btns">
+					<a href={demo} class="btn btn-green" target="_blank" rel="noopener">Agendar demonstração</a>
+					<a href="mailto:lramado13@gmail.com?subject=Quero%20falar%20sobre%20o%20NexusFlow" class="btn btn-light">Enviar e-mail</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+</Layout>
